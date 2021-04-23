@@ -1,0 +1,19 @@
+name: CICD for GO
+
+on:
+    push:
+        branches: [main]
+        
+jobs:
+    build:
+        runs-on: ubuntu-16.04
+        steps:
+            - name: Checkout my codes
+              uses: actions/checkout@v2
+            - name: setup Go Environment
+              uses: actions/setup-go@v2
+              with:
+                    go-version: '1.15'
+            - name: Version Check Go
+              run:
+                go version
